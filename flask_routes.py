@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, flash, jsonify
 import jinja2
 import json
+import parse_html
 
 app = Flask(__name__)
 app.secret_key = "TESTINGKEY"
@@ -12,6 +13,6 @@ def landing_page():
 
 @app.route("/results")
 def get_results():
-	results = ["this is my result."]
+	results = parse_html.return_links("http://runfreerunme.herokuapp.com")
 	json_results = json.dumps(results)
 	return json_results

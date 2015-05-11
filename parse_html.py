@@ -1,5 +1,13 @@
 import urllib2
 
-def print_html(my_url):
+def return_links(my_url):
 	f = urllib2.urlopen(my_url)
-	print f.read()
+	links = []
+	link_indicator = "href"
+	for line in f:
+		split_line = line.split()
+		for element in split_line:
+			if link_indicator in element:
+				links.append(element)
+
+	return links

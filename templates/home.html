@@ -21,9 +21,12 @@
 				var form_data = $("#URL_FORM").serialize();
 				var url = "/results?" + form_data;
 				$.get(url, function (data) {
-					var mystring = JSON.parse(data);
-					console.log(mystring)
-					$("#DISPLAY_RESULTS").html(mystring[0]);
+					var links = JSON.parse(data);
+					console.log(links)
+					var html_new = "<br>";
+					for (var i=0; i<links.length; i++){
+						html_new = html_new + "<a " + links[i] + "> Link " + i.toString() + "</a><br>"};
+					$("#DISPLAY_RESULTS").html(html_new);
 				});
 			});
 		</script>
