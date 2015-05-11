@@ -8,3 +8,8 @@ app.jinja_env.undefined = jinja2.StrictUndefined
 @app.route("/")
 def landing_page():
 	return render_template("home.html")
+
+@app.route("/results")
+def get_results():
+	return "This is my result."
+
