@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, redirect, url_for, flash, jsonify
 import jinja2
+import json
 
 app = Flask(__name__)
 app.secret_key = "TESTINGKEY"
@@ -11,5 +12,6 @@ def landing_page():
 
 @app.route("/results")
 def get_results():
-	return "This is my result."
-
+	results = ["this is my result."]
+	json_results = json.dumps(results)
+	return json_results

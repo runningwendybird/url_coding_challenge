@@ -5,7 +5,7 @@
 		</script>
 		<div id="URL_FORM">
 			<form action="/results">
-				<input type="url"> Enter URL
+				<input type="url" name="url_to_find"> Enter URL
 
 				<input type="submit" id="URL_SUBMIT">
 
@@ -16,9 +16,16 @@
 
 		<script>
 		$("#URL_SUBMIT").on("click", function (evt) {
-			evt.preventDefault();
-			$("#DISPLAY_RESULTS").html("<p>I got RESULTS!</p>");
-		});
+				evt.preventDefault()
+
+				var form_data = $("#URL_FORM").serialize();
+				var url = "/results?" + form_data;
+				$.get(url, function (data) {
+					var mystring = JSON.parse(data);
+					console.log(mystring)
+					$("#DISPLAY_RESULTS").html(mystring[0]);
+				});
+			});
 		</script>
 
 	</body>
