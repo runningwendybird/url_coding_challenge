@@ -9,4 +9,10 @@
 5. Your server is now running. You can navigate your web browser to localhost:5000
    to explore the app.
 
+### Tests
+
+I used pytest to write some tests. You can run them using the following steps. 
+1. Be sure that you installed all requirements in your environment. 
+2. In command line type "py.test parse_html.py" and hit enter
+
 
