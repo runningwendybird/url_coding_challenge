@@ -32,7 +32,7 @@ def get_results(my_url):
 	domain = parse_html.determine_domain(my_url)
 	sorted_links = []
 	for link in links:
-		if domain in link:
+		if domain in link or link[0] == "/":
 			sorted_links.append(link)
 	time = datetime.now()
 	results = (sorted_links, domain, time)
