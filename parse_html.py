@@ -16,9 +16,8 @@ def determine_domain(my_url):
 	# checks to see if 'www.' is in front of domain.
 	# if so removes it from the domain.
 	if domain[:4] == "www.":
-		domain = domain[4:]
+		domain = domain[3:]
 
-	domain = "/" + domain
 	return domain
 
 
