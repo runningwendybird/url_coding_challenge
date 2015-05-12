@@ -9,6 +9,7 @@ import json
 app = Flask(__name__)
 app.secret_key = "TESTINGKEY"
 app.jinja_env.undefined = jinja2.StrictUndefined
+app.debug = True
 cache = Cache(app, config={'CACHE_TYPE': 'simple'})
 
 @app.route("/")
@@ -22,7 +23,7 @@ def get_results():
 	my_url = request.args.get("url")
 	results = get_results(my_url)
 
-	return render_template("results.html", results = results[0], domain = results[1], url = my_url, time = results[2])
+	return render_template("results.html", results = results[0], url = my_url, time = results[2])
 
 
 @cache.memoize(timeout=1800)
