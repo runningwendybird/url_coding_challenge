@@ -3,8 +3,9 @@
 	<body>
 		<script src = "http://code.jquery.com/jquery-2.1.3.min.js">
 		</script>
-		I rendered the results.html template for {{ url }}.<br>
-		<p> The domain is: {{ domain }}
+		<p>View rendered at {{ time }}</p>
+		<p> The domain is: {{ domain }}</p>
+		
 		{% for item in results %}
 			<p><a href="{{ item }}">{{ item }}</a></p>
 		{% endfor %}
